@@ -65,15 +65,18 @@
         <button>Sing up</button>
       </a>
     </main>
-    <div id="google_translate_element">
-      <div class="goog-te-gadget">
-        <div id=":0.targetLanguage">
-          <select class="goog-te-combo">
-            ...
-          </select>
-        </div>
-      </div>
-    </div>
+    <div
+      id="google_translate_element"
+      style="
+        position: absolute;
+        top: -1000px;
+        left: -1000px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        z-index: -999;
+      "
+    ></div>
     <div id="preloader">
       <img src="assets/img/logo.svg" alt="Loading..." />
     </div>
