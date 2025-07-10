@@ -163,19 +163,26 @@ h4 {
   padding: 18px 80px;
   color: #000;
 
-  text-shadow: 0px 31.452px 37.743px rgba(16, 24, 40, 0.08),
-    0px 12.581px 12.581px rgba(16, 24, 40, 0.03);
-  font-family: Poppins;
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
   line-height: 30px;
   border-radius: 16px;
-  border: 2px solid rgba(255, 255, 255, 0);
-  cursor: pointer;
-  background-color: #ffcc18;
 
-  box-shadow: 0px 1.573px 3.145px 0px rgba(31, 42, 55, 0.4);
+  cursor: pointer;
+
+  --glow-color: rgba(244, 255, 176, 0.662);
+  --glow-spread-color: rgba(255, 253, 123, 0.394);
+  --enhanced-glow-color: rgba(255, 255, 206, 0.648);
+  --btn-color: #ffcc18;
+  border: 0.25em solid var(--glow-color);
+  background-color: var(--btn-color);
+  border-radius: 1em;
+  outline: none;
+  box-shadow: 0 0 1em 0.25em var(--glow-color),
+    0 0 4em 1em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color);
+  text-shadow: 0 0 0.5em var(--glow-color);
 }
 .main-button:hover button {
   background-color: #18ff4e;
@@ -235,82 +242,6 @@ select {
   animation-fill-mode: forwards;
 }
 
-.kube {
-  rotate: 20deg;
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  top: 65%;
-  right: 84%;
-  border-radius: 6px;
-  border: #f59292d6 1px solid;
-  background-color: #fbcfcfbc;
-  background-image: radial-gradient(circle 5px, #19191a 100%, transparent 0),
-    radial-gradient(circle 5px, #19191a 100%, transparent 0),
-    radial-gradient(circle 5px, #19191a 100%, transparent 0),
-    radial-gradient(circle 5px, #19191a 100%, transparent 0),
-    radial-gradient(circle 5px, #19191a 100%, transparent 0),
-    radial-gradient(circle 5px, #19191a 100%, transparent 0);
-  background-repeat: no-repeat;
-  animation: move 9s linear infinite, rotate 3s linear infinite;
-  z-index: 100;
-}
-
-@keyframes rotate {
-  0%,
-  20% {
-    transform: rotate(0deg);
-  }
-  30%,
-  40% {
-    transform: rotate(90deg);
-  }
-  50%,
-  60% {
-    transform: rotate(180deg);
-  }
-  70%,
-  80% {
-    transform: rotate(270deg);
-  }
-  90%,
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes move {
-  0%,
-  9% {
-    background-position: -12px -15px, -12px 0px, -12px 15px, 12px -15px,
-      12px 0px, 12px 15px;
-  }
-  10%,
-  25% {
-    background-position: 0px -15px, -12px 0px, -12px 15px, 34px -15px, 12px 0px,
-      12px 15px;
-  }
-  30%,
-  45% {
-    background-position: 0px -34px, -12px -10px, -12px 12px, 34px -15px,
-      12px -10px, 12px 12px;
-  }
-  50%,
-  65% {
-    background-position: 0px -34px, -12px -34px, -12px 12px, 34px -12px,
-      0px -10px, 12px 12px;
-  }
-  70%,
-  85% {
-    background-position: 0px -34px, -12px -34px, 0px 12px, 34px -12px, 0px -10px,
-      34px 12px;
-  }
-  90%,
-  100% {
-    background-position: 0px -34px, -12px -34px, 0px 0px, 34px -12px, 0px 0px,
-      34px 12px;
-  }
-}
-
 .marquee {
   width: 100%;
   max-width: 1440px;
@@ -350,10 +281,13 @@ select {
   top: 67%;
   right: 83%;
   z-index: 100;
+  rotate: 5deg;
 }
 
 #dice:hover {
   cursor: pointer;
+  scale: 0.9;
+  transition: 2s;
 }
 
 .sides {
@@ -521,39 +455,6 @@ select {
 }
 #dice[data-side="6"].reRoll {
   transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg);
-}
-
-#diceResult {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #ee4e34;
-  color: white;
-  font-weight: bold;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
-}
-
-#diceResult.hide {
-  opacity: 0;
-}
-
-#diceResult.reveal {
-  animation: fadeUp 0.3s forwards;
-}
-
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    bottom: 0;
-  }
-
-  100% {
-    opacity: 1;
-    bottom: 20px;
-  }
 }
 
 @media screen and (max-width: 980px) {
