@@ -29,10 +29,10 @@ main {
   padding-top: 220px;
   align-items: center;
   background-image: url(../img/bg.png);
-  background-size: contain;
+  background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
-  max-width: 1440px;
+
   height: 874px;
   margin: 0 auto;
 }
@@ -244,7 +244,7 @@ select {
 
 .marquee {
   width: 100%;
-  max-width: 1440px;
+
   margin: 0 auto;
   overflow: hidden;
   background: black;
